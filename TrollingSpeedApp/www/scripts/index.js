@@ -13,9 +13,10 @@
         document.addEventListener( 'resume', onResume.bind( this ), false );
         
         // TODO: Cordova has been loaded. Perform any initialization that requires Cordova here.
-        var element = document.getElementById("deviceready");
-        element.innerHTML = 'Device Ready';
-        element.className += ' ready';
+        getMap();
+        //var element = document.getElementById("deviceready");
+        //element.innerHTML = 'Device Ready';
+        //element.className += ' ready';
     };
 
     function onPause() {
@@ -25,4 +26,29 @@
     function onResume() {
         // TODO: This application has been reactivated. Restore application state here.
     };
+
+    function getMap() {
+        if (typeof Microsoft == 'undefined' ||
+            typeof Microsoft.Maps == 'undefined' ||
+            typeof Microsoft.Maps.Map == 'undefined') {
+            setTimeout(getMap, 1000);
+            //var element = document.getElementById('maps');
+            //element.innerHTML = 'TEST';
+            return;
+        }
+
+        try {
+            var element = document.getElementById('maps');
+            element.innerHTML = 'TEST';
+            var map = new Microsoft.Maps.Map(document.getElementById("maps"), {
+                credentials: 'Aokm3Po4LKNXAZPykaQHX - A7hsKIkmfhr4eClHS_M_qHeG_w0V9hsNzyxPCFkt - x',
+                showDashboard: false,
+                enableHighDpi: true,
+                backgroundColor: new Microsoft.Maps.Color(255, 0, 0, 0)
+            });
+        } catch (e) {
+            //alert('failed');
+        }
+    }
+
 } )();

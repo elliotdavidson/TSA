@@ -4,11 +4,12 @@ body {
     -webkit-user-select: none;
     background-color:#32383d;
     font-family: 'RobotoRegular', 'Droid Sans', 'Segoe UI', Segoe, 'San Francisco', 'Helvetica Neue', Helvetica, Arial, Geneva, sans-serif;
-    font-size:12px;
+    font-size:32px;
+    color:white;
 }
 
 .app {
-    background: url(../images/cordova.png) no-repeat center top; 
+    /*background: url(../images/cordova.png) no-repeat center top;*/ 
     background-size: contain;
     position: absolute;             
     left: 50%;
@@ -18,9 +19,10 @@ body {
     text-align: center;
     padding: 200px 0px 0px 0px;     
     margin: -125px;
+    color: white;
 }
 
-.event {
+/*.event {
     border-radius: 4px;
     -webkit-border-radius: 4px;
     color: #FFFFFF;
@@ -30,7 +32,7 @@ body {
     background-color: #696969;
     animation: fade 3000ms infinite;
     -webkit-animation: fade 3000ms infinite;
-}
+}*/
 
 .ready {
     background-color: #4B946A;
@@ -52,4 +54,12 @@ body {
 }
 
 @media screen and (orientation: landscape) {
+}
+
+#maps {
+    position: absolute;
+   top: 75px;
+   width: 95%;
+   height: 85%;
+   border:#555555 2px solid;
 }
