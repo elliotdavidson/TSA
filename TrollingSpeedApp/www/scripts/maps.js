@@ -1,31 +1,43 @@
-﻿//var maps;
+﻿//(function (global) {
 
-//document.addEventListener('deviceready', onDeviceReady.bind(this), false);
+//    function loadMapsApi() {
+//        $.getScript('http://www.bing.com/api/maps/mapcontrol?callback=onMapsApiLoaded');
+//    }
 
-//function onDeviceReady() {
-//    getMap();
-//};
+//    global.onMapsApiLoaded = function () {
+//        var Latitude, Longitude
+//        navigator.geolocation.watchPosition(geolocationSuccess, geolocationError, { timeout: 30000, enableHighAccuracy: true });
 
-function getMap() {
-    if (typeof Microsoft == 'undefined' ||
-        typeof Microsoft.Maps == 'undefined' ||
-        typeof Microsoft.Maps.Map == 'undefined') {
-        setTimeout(getMap, 1000);
-        //var element = document.getElementById('maps');
-        //element.innerHTML = 'TEST';
-        return;
-    }
+//        function geolocationSuccess(postion){
+//            Latitude = postion.coords.latitude;
+//            Longitude = postion.coords.longitude;
 
-    try {
-        var element = document.getElementById('maps');
-        element.innerHTML = 'TEST';
-        var map = new Microsoft.Maps.Map(document.getElementById("maps"), {
-            credentials: 'Aokm3Po4LKNXAZPykaQHX - A7hsKIkmfhr4eClHS_M_qHeG_w0V9hsNzyxPCFkt - x',
-            showDashboard: false,
-            enableHighDpi: true,
-            backgroundColor: new Microsoft.Maps.Color(255, 0, 0, 0)
-        });
-    } catch (e) {
-        //alert('failed');
-    }
-}
+//            //getMap(Latitude, Longitude)
+//        }
+
+//        function geolocationError(error) {
+//            console.log("Error: " + error.message);
+//        }
+
+//        var map = new Microsoft.Maps.Map(document.getElementById('myMap'), {
+//            credentials: 'Aokm3Po4LKNXAZPykaQHX-A7hsKIkmfhr4eClHS_M_qHeG_w0V9hsNzyxPCFkt-x',
+//            center: new Microsoft.Maps.Location(0, 0),
+//            mapTypeId: Microsoft.Maps.MapTypeId.aerial,
+//            zoom: 10
+//        });
+//    };
+
+//    document.addEventListener("deviceready", onDeviceReady, false);
+//})
+
+//function loadMapsApi() {
+//    $.getScript('http://www.bing.com/api/maps/mapcontrol?callback=onMapsApiLoaded');
+//    loadMapScenario();
+//}
+
+//function loadMapScenario() {
+
+//    var map = new Microsoft.Maps.Map(document.getElementById('myMap'), {
+//        credentials: 'Aokm3Po4LKNXAZPykaQHX-A7hsKIkmfhr4eClHS_M_qHeG_w0V9hsNzyxPCFkt-x'
+//    });
+//}

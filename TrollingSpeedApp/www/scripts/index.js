@@ -2,7 +2,7 @@
 // http://go.microsoft.com/fwlink/?LinkID=397704
 // To debug code on page load in Ripple or on Android devices/emulators: launch your app, set breakpoints, 
 // and then run "window.location.reload()" in the JavaScript Console.
-(function () {
+(function (global) {
     "use strict";
 
     document.addEventListener( 'deviceready', onDeviceReady.bind( this ), false );
@@ -13,42 +13,45 @@
         document.addEventListener( 'resume', onResume.bind( this ), false );
         
         // TODO: Cordova has been loaded. Perform any initialization that requires Cordova here.
-        getMap();
-        //var element = document.getElementById("deviceready");
-        //element.innerHTML = 'Device Ready';
-        //element.className += ' ready';
+        loadMapsApi();
     };
 
     function onPause() {
         // TODO: This application has been suspended. Save application state here.
+        loadMapsApi();
     };
 
     function onResume() {
         // TODO: This application has been reactivated. Restore application state here.
+        loadMapsApi();
     };
 
-    function getMap() {
-        if (typeof Microsoft == 'undefined' ||
-            typeof Microsoft.Maps == 'undefined' ||
-            typeof Microsoft.Maps.Map == 'undefined') {
-            setTimeout(getMap, 1000);
-            //var element = document.getElementById('maps');
-            //element.innerHTML = 'TEST';
-            return;
-        }
-
-        try {
-            var element = document.getElementById('maps');
-            element.innerHTML = 'TEST';
-            var map = new Microsoft.Maps.Map(document.getElementById("maps"), {
-                credentials: 'Aokm3Po4LKNXAZPykaQHX - A7hsKIkmfhr4eClHS_M_qHeG_w0V9hsNzyxPCFkt - x',
-                showDashboard: false,
-                enableHighDpi: true,
-                backgroundColor: new Microsoft.Maps.Color(255, 0, 0, 0)
-            });
-        } catch (e) {
-            //alert('failed');
-        }
+    function loadMapsApi() {
+        $.getScript('http://www.bing.com/api/maps/mapcontrol?callback=onMapsApiLoaded');
     }
 
-} )();
+    global.onMapsApiLoaded = function () {
+        var Latitude, Longitude
+        navigator.geolocation.watchPosition(geolocationSuccess, geolocationError, { timeout: 30000, enableHighAccuracy: true });
+
+        function geolocationSuccess(postion){
+            Latitude = postion.coords.latitude;
+            Longitude = postion.coords.longitude;
+
+            getMap(Latitude, Longitude)
+        }
+
+        function geolocationError(error) {
+            console.log("Error: " + error.message);
+        }
+
+        var map = new Microsoft.Maps.Map(document.getElementById('myMap'), {
+            credentials: 'Aokm3Po4LKNXAZPykaQHX-A7hsKIkmfhr4eClHS_M_qHeG_w0V9hsNzyxPCFkt-x',
+            center: new Microsoft.Maps.Location(46.9698, -119.3330),
+            mapTypeId: Microsoft.Maps.MapTypeId.aerial,
+            zoom: 10
+        });
+    };
+
+    document.addEventListener("deviceready", onDeviceReady, false);
+} )(window);

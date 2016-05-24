@@ -56,8 +56,8 @@ body {
 @media screen and (orientation: landscape) {
 }
 
-#maps {
-    position: absolute;
+#myMap {
+   position: absolute;
    top: 75px;
    width: 95%;
    height: 85%;
