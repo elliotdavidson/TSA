@@ -4,26 +4,31 @@
 // and then run "window.location.reload()" in the JavaScript Console.
 (function (global) {
     "use strict";
+    var Latitude = 0;
+    var Longitude = 0;
 
-    document.addEventListener( 'deviceready', onDeviceReady.bind( this ), false );
+    document.addEventListener('deviceready', onDeviceReady.bind(this), false);
 
     function onDeviceReady() {
         // Handle the Cordova pause and resume events
-        document.addEventListener( 'pause', onPause.bind( this ), false );
-        document.addEventListener( 'resume', onResume.bind( this ), false );
-        
+        document.addEventListener('pause', onPause.bind(this), false);
+        document.addEventListener('resume', onResume.bind(this), false);
+
         // TODO: Cordova has been loaded. Perform any initialization that requires Cordova here.
         loadMapsApi();
+        window.plugins.insomnia.keepAwake()
     };
 
     function onPause() {
         // TODO: This application has been suspended. Save application state here.
         loadMapsApi();
+        window.plugins.insomnia.allowSleepAgain()
     };
 
     function onResume() {
         // TODO: This application has been reactivated. Restore application state here.
         loadMapsApi();
+        window.plugins.insomnia.keepAwake()
     };
 
     function loadMapsApi() {
@@ -31,14 +36,11 @@
     }
 
     global.onMapsApiLoaded = function () {
-        var Latitude, Longitude
         navigator.geolocation.watchPosition(geolocationSuccess, geolocationError, { timeout: 30000, enableHighAccuracy: true });
 
-        function geolocationSuccess(postion){
-            Latitude = postion.coords.latitude;
-            Longitude = postion.coords.longitude;
-
-            getMap(Latitude, Longitude)
+        function geolocationSuccess(position) {
+            Latitude = position.coords.latitude;
+            Longitude = position.coords.longitude;
         }
 
         function geolocationError(error) {
@@ -47,11 +49,19 @@
 
         var map = new Microsoft.Maps.Map(document.getElementById('myMap'), {
             credentials: 'Aokm3Po4LKNXAZPykaQHX-A7hsKIkmfhr4eClHS_M_qHeG_w0V9hsNzyxPCFkt-x',
-            center: new Microsoft.Maps.Location(46.9698, -119.3330),
+            center: new Microsoft.Maps.Location(Latitude, Longitude),
             mapTypeId: Microsoft.Maps.MapTypeId.aerial,
-            zoom: 10
+            zoom: 20
         });
+
+        try {
+            var pushpin = new Microsoft.Maps.Pushpin(map.getCenter(), null);
+            map.entities.push(pushpin);
+        } catch (e) {
+            //Stuff goes here
+        }
     };
 
     document.addEventListener("deviceready", onDeviceReady, false);
-} )(window);
+
+})(window);
