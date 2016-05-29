@@ -58,19 +58,19 @@
     <icon src="res/icons/ios/icon-50-2x.png" width="100" height="100" />
   </platform>
   <platform name="windows">
-    <icon src="res/icons/windows/Square150x150Logo.scale-100.png" width="150" height="150" />
-    <icon src="res/icons/windows/Square150x150Logo.scale-240.png" width="360" height="360" />
-    <icon src="res/icons/windows/Square30x30Logo.scale-100.png" width="30" height="30" />
-    <icon src="res/icons/windows/Square310x310Logo.scale-100.png" width="310" height="310" />
-    <icon src="res/icons/windows/Square44x44Logo.scale-100.png" width="44" height="44" />
-    <icon src="res/icons/windows/Square44x44Logo.scale-240.png" width="106" height="106" />
-    <icon src="res/icons/windows/Square70x70Logo.scale-100.png" width="70" height="70" />
-    <icon src="res/icons/windows/Square71x71Logo.scale-100.png" width="71" height="71" />
-    <icon src="res/icons/windows/Square71x71Logo.scale-240.png" width="170" height="170" />
-    <icon src="res/icons/windows/StoreLogo.scale-100.png" width="50" height="50" />
-    <icon src="res/icons/windows/StoreLogo.scale-240.png" width="120" height="120" />
-    <icon src="res/icons/windows/Wide310x150Logo.scale-100.png" width="310" height="150" />
-    <icon src="res/icons/windows/Wide310x150Logo.scale-240.png" width="744" height="360" />
+    <icon src="res/icons/windows/logo150x150.png" width="150" height="150" />
+    <icon src="res/icons/windows/logo150x150trans.png" width="360" height="360" />
+    <icon src="res/icons/windows/logo30x30" width="30" height="30" />
+    <icon src="res/icons/windows/logo310x310.png" width="310" height="310" />
+    <icon src="res/icons/windows/logo44x44.png" width="44" height="44" />
+    <icon src="res/icons/windows/logo44x44trans.png" width="106" height="106" />
+    <icon src="res/icons/windows/logo70x70.png" width="70" height="70" /> 
+    <icon src="res/icons/windows/logo71x71.png" width="71" height="71" />
+    <icon src="res/icons/windows/logo71x71trans.png" width="170" height="170" />
+    <icon src="res/icons/windows/logoStore50x50.png" width="50" height="50" />
+    <icon src="res/icons/windows/logoStore120x120.png" width="120" height="120" />
+    <icon src="res/icons/windows/logo310x150.png" width="310" height="150" />
+    <icon src="res/icons/windows/logo310x150trans.png" width="744" height="360" /> 
   </platform>
   <platform name="wp8">
     <icon src="res/icons/wp8/ApplicationIcon.png" width="99" height="99" />
@@ -99,12 +99,12 @@
     <splash src="res/screens/ios/screen-iphone-landscape-736h.png" width="2208" height="1242" />
   </platform>
   <platform name="windows">
-    <splash src="res/screens/windows/SplashScreen.scale-100.png" width="620" height="300" />
-    <splash src="res/screens/windows/SplashScreen.scale-240.png" width="1152" height="1920" />
-    <splash src="res/screens/windows/SplashScreenPhone.scale-240.png" width="1152" height="1920" />
+    <splash src="res/screens/windows/smallsplash.png" width="620" height="300" />
+    <splash src="res/screens/windows/splashtrans.png" width="1152" height="1920" /> 
+    <splash src="res/screens/windows/splash.png" width="1152" height="1920" />
   </platform>
   <platform name="wp8">
-    <splash src="res/screens/wp8/SplashScreenImage.png" width="768" height="1280" />
+    <splash src="res/screens/wp8/splash.fw.png" width="768" height="1280" />
   </platform>
   <plugin name="cordova-plugin-geolocation" version="2.1.0" />
   <preference name="WindowsStoreDisplayName" value="Trolling Speed App" />
