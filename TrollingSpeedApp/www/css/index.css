@@ -58,13 +58,8 @@ body {
 
 #myMap {
    position: absolute;
-   top: 135px;
+   top: 75px;
    width: 95%;
-   height: 75%;
+   height: 85%;
    border:#555555 2px solid;
-}
-
-#coordsButton {
-    float: right;
-    margin-top: 10px;
 }

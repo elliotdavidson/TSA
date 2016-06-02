@@ -12,12 +12,6 @@
         },
         "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "io.cordova.myapp7c85a7"
-        },
-        "cordova-plugin-splashscreen": {
-            "PACKAGE_NAME": "io.cordova.myapp7c85a7"
-        },
-        "cordova-plugin-insomnia": {
-            "PACKAGE_NAME": "io.cordova.myapp7c85a7"
         }
     },
     "dependent_plugins": {}

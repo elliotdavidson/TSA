@@ -114,6 +114,4 @@
       <vs:packageOutputPath>d:\users\elliot\documents\visual studio 2015\Projects\TrollingSpeedApp\TrollingSpeedApp\AppPackages\</vs:packageOutputPath>
     </vs:platformSpecificWidget>
   </vs:platformSpecificValues>
-  <plugin name="cordova-plugin-splashscreen" version="3.1.0" />
-  <plugin name="cordova-plugin-insomnia" version="4.2.0" src="https://github.com/EddyVerbruggen/Insomnia-PhoneGap-Plugin.git" />
 </widget>
